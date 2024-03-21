@@ -2,10 +2,8 @@ package br.com.fiap.checkpoint.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
+@Table(name = "episodios")
 public class Episodio {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,9 +11,12 @@ public class Episodio {
     private String titulo;
     private Integer numeroEpisodio;
     private Integer temporada;
-    @ManyToOne
-    private List<Serie> listSerie = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "serie_id") // Nome da coluna na tabela de episodios que referencia a serie
+    private Serie serie;
+
+    // Getters e setters
     public Long getId() {
         return id;
     }
@@ -48,11 +49,11 @@ public class Episodio {
         this.temporada = temporada;
     }
 
-    public List<Serie> getListSerie() {
-        return listSerie;
+    public Serie getSerie() {
+        return serie;
     }
 
-    public void setListSerie(List<Serie> listSerie) {
-        this.listSerie = listSerie;
+    public void setSerie(Serie serie) {
+        this.serie = serie;
     }
 }

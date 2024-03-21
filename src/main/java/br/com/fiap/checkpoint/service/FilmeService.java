@@ -1,10 +1,11 @@
 package br.com.fiap.checkpoint.service;
 
+import br.com.fiap.checkpoint.controller.dto.FilmeDTO;
 import br.com.fiap.checkpoint.model.Filme;
 import br.com.fiap.checkpoint.repository.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.example.controller.dto.FilmeDTO;
+
 import java.util.List;
 import java.util.Optional;
 

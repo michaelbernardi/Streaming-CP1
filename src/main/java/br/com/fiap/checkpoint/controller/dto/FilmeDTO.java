@@ -1,4 +1,4 @@
-package org.example.controller.dto;
+package br.com.fiap.checkpoint.controller.dto;
 
 public class FilmeDTO {
     private Long id;

@@ -1,11 +1,12 @@
 package br.com.fiap.checkpoint.controller;
 
+import br.com.fiap.checkpoint.controller.dto.FilmeDTO;
 import br.com.fiap.checkpoint.model.Filme;
 import br.com.fiap.checkpoint.service.FilmeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.example.controller.dto.FilmeDTO;
+
 
 import java.util.List;
 
@@ -37,6 +38,7 @@ public class FilmeController {
         return ResponseEntity.ok(filmes);
     }
 
+    //Mostra Filme
     @GetMapping("/{id}")
     public ResponseEntity<Void> buscarFilme(@PathVariable Long id) {
         filmeService.buscarFilme(id);

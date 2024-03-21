@@ -30,7 +30,7 @@ public class EpisodioService {
             episodioAtualizado.setTitulo(episodioDTO.getTitulo());
             episodioAtualizado.setNumeroEpisodio(episodioDTO.getNumeroEpisodio());
             episodioAtualizado.setTemporada(episodioDTO.getTemporada());
-            episodioAtualizado.setListSerie(episodioDTO.getListSerie());
+            episodioAtualizado.setSerie(episodioDTO.getSerie());
             return episodioRepository.save(episodioAtualizado);
         }   else {
             throw new RuntimeException("Episódio não encontrado com o ID: " + id);

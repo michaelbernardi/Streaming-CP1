@@ -28,7 +28,7 @@ public class SerieService {
             Serie serieAtualizado = serieExistente.get();
             serieAtualizado.setGenero(serieDTO.getGenero());
             serieAtualizado.setAnoLancamento(serieDTO.getAnoLancamento());
-            serieAtualizado.setListEpisodio(serieDTO.getListEpisodio());
+            serieAtualizado.setEpisodios(serieDTO.getEpisodios());
             serieAtualizado.setDescricao(serieDTO.getDescricao());
             serieAtualizado.setTitulo(serieDTO.getTitulo());
             return serieRepository.save(serieAtualizado);

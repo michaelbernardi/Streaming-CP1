@@ -1,11 +1,11 @@
 package br.com.fiap.checkpoint.model;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "series")
 public class Serie {
 
     @Id
@@ -15,9 +15,11 @@ public class Serie {
     private String descricao;
     private Integer anoLancamento;
     private String genero;
-    @OneToMany
-    private List<Episodio> listEpisodio = new ArrayList<>();
 
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL)
+    private List<Episodio> episodios = new ArrayList<>();
+
+    // Getters e setters
     public Long getId() {
         return id;
     }
@@ -58,11 +60,11 @@ public class Serie {
         this.genero = genero;
     }
 
-    public List<Episodio> getListEpisodio() {
-        return listEpisodio;
+    public List<Episodio> getEpisodios() {
+        return episodios;
     }
 
-    public void setListEpisodio(List<Episodio> listEpisodio) {
-        this.listEpisodio = listEpisodio;
+    public void setEpisodios(List<Episodio> episodios) {
+        this.episodios = episodios;
     }
 }

@@ -1,6 +1,7 @@
 package br.com.fiap.checkpoint.controller.dto;
 
 import br.com.fiap.checkpoint.model.Episodio;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
@@ -12,9 +13,10 @@ public class SerieDTO {
     private String descricao;
     private Integer anoLancamento;
     private String genero;
-    @OneToMany
-    private List<Episodio> listEpisodio = new ArrayList<>();
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL)
+    private List<Episodio> episodios = new ArrayList<>();
 
+    // Getters e setters
     public Long getId() {
         return id;
     }
@@ -55,12 +57,11 @@ public class SerieDTO {
         this.genero = genero;
     }
 
-    public List<Episodio> getListEpisodio() {
-        return listEpisodio;
+    public List<Episodio> getEpisodios() {
+        return episodios;
     }
 
-    public void setListEpisodio(List<Episodio> listEpisodio) {
-        this.listEpisodio = listEpisodio;
+    public void setEpisodios(List<Episodio> episodios) {
+        this.episodios = episodios;
     }
 }
-

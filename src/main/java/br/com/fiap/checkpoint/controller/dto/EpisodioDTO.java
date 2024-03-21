@@ -1,6 +1,7 @@
 package br.com.fiap.checkpoint.controller.dto;
 
 import br.com.fiap.checkpoint.model.Serie;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import java.util.ArrayList;
@@ -13,8 +14,10 @@ public class EpisodioDTO {
     private Integer numeroEpisodio;
     private Integer temporada;
     @ManyToOne
-    private List<Serie> listSerie = new ArrayList<>();
+    @JoinColumn(name = "serie_id") // Nome da coluna na tabela de episodios que referencia a serie
+    private Serie serie;
 
+    // Getters e setters
     public Long getId() {
         return id;
     }
@@ -47,14 +50,11 @@ public class EpisodioDTO {
         this.temporada = temporada;
     }
 
-    public List<Serie> getListSerie() {
-        return listSerie;
+    public Serie getSerie() {
+        return serie;
     }
 
-    public void setListSerie(List<Serie> listSerie) {
-        this.listSerie = listSerie;
+    public void setSerie(Serie serie) {
+        this.serie = serie;
     }
 }
-
-
-
